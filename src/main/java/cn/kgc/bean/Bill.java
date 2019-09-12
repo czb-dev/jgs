@@ -21,4 +21,6 @@ public class Bill{
 	private Integer providerId;//供应商Id
 
 	private  String providerName;//供应商名称
+	private String name;
+
 }
