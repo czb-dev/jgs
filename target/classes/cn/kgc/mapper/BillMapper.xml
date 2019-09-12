@@ -1,0 +1,15 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.kgc.mapper.BillMapper">
+    <resultMap id="BillList" type="Bill">
+        <id property="id" column="id"></id>
+        <id property="providerName" column="proName"></id>
+    </resultMap>
+    <select id="getBillList" resultType="Bill" parameterType="Bill" resultMap="BillList">
+
+        select  * from smbms_bill b,smbms_provider p where productName like concat('%',#{productName},'%')
+         and isPayment = #{isPayment} and b.providerId = #{providerId}
+         and b.providerId = p.id
+    </select>
+</mapper>
